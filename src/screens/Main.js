@@ -127,7 +127,7 @@ function Main({navigation}) {
                   const match = base64data.match(regex);
                   const imageData = match.groups.image;
                   axios
-                    .post('http://211.62.179.135:4000/fsl/test', {
+                    .post('serverURL/fsl/test', {
                       img: imageData,
                     })
                     .then(response => {

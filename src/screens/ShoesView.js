@@ -76,7 +76,6 @@ function Shoe(props) {
 
   const base = useLoader(TextureLoader, modelPath[props.modelNum].texture);
   const material = useLoader(MTLLoader, modelPath[props.modelNum].material);
-
   const obj = useLoader(OBJLoader, modelPath[props.modelNum].object, loader => {
     material.preload();
     loader.setMaterials(material);
@@ -91,10 +90,10 @@ function Shoe(props) {
   }, [obj]);
 
   const mesh = useRef();
-  const copiedScene = useMemo(() => obj.clone(), [obj]);
+  // const copiedScene = useMemo(() => obj.clone(), [obj]);
   return (
     <mesh ref={mesh} rotation={[0, 2, 0]}>
-      <primitive object={copiedScene} scale={9} />
+      <primitive object={obj} scale={9} />
     </mesh>
   );
 }
